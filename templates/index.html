@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FolkAI - Transform Folk Songs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">FolkAI</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>AI transforming folk songs</h1>
+                <h2>Bringing local songs to modern poetry</h2>
+                <p>AI transcribes folk songs into modern poetic expressions</p>
+                <div class="circular-diagram" id="openInterface"></div>
+                <p>AI transforming traditional songs into modern poetry</p>
+                <div class="cta-buttons">
+                    <button class="btn primary" id="tryItBtn">Try It</button>
+                    <button class="btn secondary">Learn More</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="featured-art">
+            <h2>Featured Art Styles</h2>
+            <div class="art-grid">
+                <div class="art-item">
+                    <h3>Madhubani</h3>
+                </div>
+                <div class="art-item">
+                    <h3>Madhubani</h3>
+                </div>
+                <div class="art-item">
+                    <h3>Warli</h3>
+                </div>
+                <div class="art-item">
+                    <h3>Gond Art</h3>
+                </div>
+                <div class="art-item">
+                    <h3>Gond Art</h3>
+                </div>
+                <div class="art-item">
+                    <h3>Gond Art</h3>
+                </div>
+            </div>
+        </section>
+
+        <div id="transformInterface" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Transform Your Folk Song</h2>
+                <form id="transformForm" action="/transform" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="folkSongInput">Enter your folk song:</label>
+                        <textarea name="folkSongInput" id="folkSongInput" rows="4" placeholder="Enter your folk song here..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="artworkType">Choose art style:</label>
+                        <select name="artworkType" id="artworkType" required>
+                            <option value="">Select an art style</option>
+                            <option value="madhubani">Madhubani</option>
+                            <option value="warli">Warli</option>
+                            <option value="gond">Gond Art</option>
+                            <option value="kalighat">Kalighat</option>
+                        </select>
+                    </div>
+                    <div class="progress-container" style="display: none;">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <p class="progress-text">Processing your folk song...</p>
+                    </div>
+                    <button type="submit" class="btn primary">Transform</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
