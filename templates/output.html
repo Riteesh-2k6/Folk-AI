@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FolkAI - Generated Art</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .output-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .text-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .image-section img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .poem-text {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            white-space: pre-line;
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .output-poem {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">FolkAI</div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="output-grid">
+            <div class="image-section">
+                <h2>Generated {{ result.artwork_style }} Art</h2>
+                <div class="output-image">
+                    <img src="{{ result.image_path }}" 
+                         alt="AI Generated Folk Art" 
+                         id="outputImage">
+                </div>
+                <div class="analysis-section">
+                    <h2>Folk Song Analysis</h2>
+                    <div class="folk-analysis">
+                        <p id="folkAnalysis">{{ result.description }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="poem-section">
+                <h2>Generated Poem</h2>
+                <div class="output-poem">
+                    <div id="outputPoem" class="poem-text">{{ result.modern_poem | safe }}</div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
